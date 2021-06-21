@@ -40,14 +40,20 @@ var people = [
 // b) Create the function that makes the test pass.
 
 const cap = (array) => {
+  //initiate a variable set to empty array
   let newArr=[]
+  //create for loop to iterate over array
   for(let i=0; i<array.length; i++){
+  //use .split method and then map to return uppercase first letter then add the rest of word with slice
     let capName=array[i].name.split(' ').map(str =>{
       return str[0].toUpperCase() +str.slice(1)
+  // use join method 
     }).join(' ')
+  //push everything into empty array and string interpolation to create sentance
     newArr.push(`${capName} is a ${array[i].occupation}`)
     
   }
+  //retrun new array
   return newArr
 }
 console.log(cap(people))
@@ -71,7 +77,9 @@ var hodgepodge2 = [5, "Hola", 43, -34, "greetings", true]
 // b) Create the function that makes the test pass.
 
 const remain= (array) => {
+//use filter to iterate over array and set to variable, and filter out anything that isnt a datatype of number
     let filArr= array.filter(value => typeof value  === 'number')
+//then map over the filtered array and use modulo 3 and return
     return filArr.map(value => value % 3)
 }
 console.log(remain(hodgepodge1))
@@ -95,9 +103,11 @@ var cubeAndSum2 = [0, 5, 10]
 
 // b) Create the function that makes the test pass.
 const sumAll = (array) => {
+//map over array and return value cubed and set it t variable
     let a= array.map(value =>{
       return value**3
     })
+//use join method and evaluate 
     return eval(a.join('+'))
 }
 console.log(sumAll(cubeAndSum1))
